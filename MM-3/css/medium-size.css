@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+/* ===============================
+		TABLET SIZE
+================================*/
+@media only screen and (min-width: 721px){
+	header{
+		text-align: center;
+		width: 100%;
+		height: auto;
+		background-color: rgba(255, 255, 255, 1);
+		overflow: hidden;
+	}
+	.headerLogo{
+		visibility: hidden;
+	}
+	.headerLogo2{
+		height: 22vh;
+		background-repeat: no-repeat;
+		background-image: url('../images/logo.png');
+		background-size: 11%;
+		background-position: center 20%;
+		margin-top: 2%;
+	}
+	
+
+/* ===============================
+		TABLET NAV
+================================*/
+
+	nav{  /* Navigatie voor Tablet en Desktop */
+		position: relative;
+		width: 100%;
+		height: auto;
+	}
+	nav ul{
+		margin: 0 auto;
+		text-align: center;
+		padding: 2% 0 1% 0;
+	}
+	nav ul li{
+		text-align: center; 
+		display: inline;
+		background-color: unset;
+		border-bottom: none; 
+	}
+		nav ul li a{
+		display: inline;
+		text-decoration: none;
+		color: #684f40;
+		letter-spacing: 1px;
+		font-size: 0.9rem;
+		padding: 0 0.4rem 0 0.4rem;
+		border-right: 1px solid #cccccc;
+	}
+	nav ul li .last{
+		border-right: 1px solid transparent;
+	}
+	nav ul li a:hover{
+		background-color: unset;
+		color: #f8b538;
+	}
+	#showMenu{  /* Uitzetten mobiele navigatie menu */
+		all: unset;
+	}
+	#showMenuLabel{
+		display: none;
+	}
+	#showMenu::after{  
+		all: unset;
+	}
+	#showMenu:checked::after{
+		display: none;
+	}
+	#showMenu + nav{
+		display: unset;
+	}
+	#showMenu:checked + nav{
+		all: unset;
+	}
+
+
+/* ===============================
+		HERO IMAGE
+================================*/
+	.dividerLine{  /* Bruine lijn onder en boven hero-image bij Tablet en Desktop */
+		background: #717171;
+		height:  1px;
+		margin: 0.5vh 0 0.5vh 0;
+		border-bottom: 2px solid #684f40;
+	}
+	#heroImage{
+		box-shadow: none;
+		background-position: center 4.5rem;
+		height: 70vw;
+	}
+	.heroImageText .bigText{
+		font-size: 2rem;
+		letter-spacing: 0.15rem;
+		word-spacing: 0.1rem;
+		text-shadow: 1px 1px 5px #696969;
+	}
+	.heroImageText{
+		padding-top: 43%;
+	}
+	.heroImageText .subText{
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+		letter-spacing: 0.1rem;
+		text-shadow: 1px 1px 2px #333333;
+	}
+/* ===============================
+		LATEST PRODUCTS
+================================*/
+	section.aankondiging h2{
+		font-size: 0.9rem;
+	}
+	section.aankondiging h3 span{
+		font-size: 0.8rem;
+		display: inline;
+	}
+	.aankondiging .lijnGrijs{
+		margin: 1vh 20% 1vh 41%;
+		width: 18vw;
+	}
+	.aankondiging .lijnOranje{
+		width: 5vw;
+		left: 38%;
+	}
+
+/* ===============================
+		PRODUCTS CAROUSEL
+================================*/
+	.carousel .pic:first-child, .carousel .pic:nth-child(8),.carousel .pic:nth-child(9){
+		display: none;
+	}
+	.carousel .pic:nth-child(2), .carousel .pic:nth-child(3),  
+	.carousel .pic:nth-child(4),.carousel .pic:nth-child(5), 
+	.carousel .pic:nth-child(6),.carousel .pic:nth-child(7){
+		display:initial;  /* Zichtbaar maken van de eerder verstopte childs/images */
+	}
+	.carousel{
+		width: 95%;
+		margin: 2% auto 2% auto;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+	.carousel .pic{
+		float: left;
+		width: 31.333%;
+		margin: 1%;
+	}
+	.carousel .pic img{
+		width: 100%;
+		height: auto;
+		border: 2px solid #684f40;
+		padding: 2%;
+		background-color: #ffffff;
+	}
+	.pagination li:nth-child(2), .pagination li:nth-child(3), 
+	.pagination li:nth-child(4), .pagination li:nth-child(5), 
+	.pagination li:nth-child(6), .pagination li:nth-child(7), 
+	.pagination li:nth-child(9), .pagination li:nth-child(10), 
+	.pagination li:nth-child(11),.pagination li:nth-child(12){
+		display: none;  /* Aantal bolletjes terugbrengen naar 2 */
+	}
+	.seeProducts{
+			width: 30%;
+			padding: 2% 0;
+		}
+	.seeProducts p{
+		font-size: 0.8rem;
+	}
+
+/* ===============================
+		TRANSITION
+================================*/
+.seeProducts{  /* Draaiende button transition met prefixes */
+	-webkit-transition: width, background-color;
+	-moz-transition: width, background-color;
+	-o-transition: width, background-color;
+	transition: width, background-color;
+
+	-webkit-transition-duration: 200ms, 0.5s;
+	-moz-transition-duration: 200ms, 0.5s;
+	-o-transition-duration: 200ms, 0.5s;
+	transition-duration: 200ms, 0.5s;
+
+	-webkit-transition-delay: 0, 0.5s;
+	-moz-transition-delay: 0, 0.5s;
+	-o-transition-delay: 0, 0.5s;
+	transition-delay: 0, 0.5s;
+
+	-webkit-transition:transform 2s;
+	-moz-transition:transform 2s;
+	-o-transition:transform 2s;
+	transition:transform 2s;
+	}
+.seeProducts:hover{
+	width: 40%;
+	background-color: #dfb822;
+	transform: rotate(360deg);
+	}
+	
+/* ===============================
+		TESTIMONIAL
+================================*/
+	.testimonial > h2{
+		position: absolute;
+		top: 28%;
+		right: 5%;
+		font-family: 'montserratbold';
+		font-size: 1.3rem;
+	}
+	.testimonial .quoteOne{
+		width: 50%;
+		position: absolute;
+		top: 35%;
+		right: 5%;
+		font-family: 'montserratbold';
+		font-size: 100%;
+		line-height: 1.2rem;
+	}
+	.testimonial .jean{
+		display: none;
+	}
+
+
+/* ===============================
+		MAIN SERVICES
+================================*/
+	.card {
+	   flex: 0 1 45%;
+	   margin: 4% 0 4% 0;
+	}
+	.cards .card img{
+		width: 50%;
+		padding: 11%;
+	}
+	.card {
+	  flex: 0 1 40%;
+  }
+/* ===============================
+		ABOUT & SUBSCRIBE
+================================*/
+	body > aside .container .subscribeButton{ /* Indeling zelfde alleen meer gecentreerd en met image, */
+		float: right;														/* ook subscribe op gedeeld door floating */
+		width: 18%;
+		padding: 2% 0;
+
+	}
+	body > aside .container .subscribeField{
+		float: left;
+		width: 80%;
+		margin-top: 0;
+		padding: 3%; 
+	}
+	body > aside .container div{
+		text-align: center;
+	}
+	body > aside .container .subscribeWrapper{
+		margin-top: 0.5rem;
+	}
+	aside img{
+		display: initial;
+	}
+/* ===============================
+		FOOTER
+================================*/
+	body > footer{
+		background-position: 102% 3vw; /* right, top */
+		background-size: 32vw;
+	}
+	
+	body > footer .container > div{ /* Cards in twee kolommen */
+		float: left;
+		width: 50%;
+		padding: 1rem;
+	}
+	
+	body > footer h2{
+		font-size: 1rem;
+		padding: 2rem 0 1rem 0; /* Meer ruimte onder de heading */
+	}
+	
+	#footerSocMed span{
+		font-size: 1rem;
+		padding: 0.45rem;
+		
+		width: 2.1rem;
+		height: 2.1rem;
+	}
+}

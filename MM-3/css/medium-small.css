@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* ===============================
+		TABLET SIZE
+================================*/
+@media only screen 
+	and (max-width: 720px)
+	and (min-width: 400px){
+	body {
+	}
+	#showMenu::after{  /* Hamburger menu */
+		font-size: 1.8rem; /* Aangepast formaat hamburger icoon */
+	}
+	#showMenu:checked::after{ /* Aangepast formaat X icoon */
+	font-size: 1.8rem;
+	}
+	header .headerLogo{
+	margin: 3% 0 2% 4%;
+	}
+.testimonial > h2{
+	position: absolute;
+	right: 7%;
+	font-size: 1.4rem;
+	}
+.testimonial .quoteOne{
+	top: 45%;
+	right: 7%;
+	}
+}

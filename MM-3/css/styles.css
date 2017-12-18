@@ -1,0 +1,531 @@
+@charset "UTF-8";
+
+/* ===============================
+		Defaults and Set-ups
+================================*/
+*, *:before, *:after{  
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html{
+	font-size: 100%; /* Om goed met rem te kunnen werken, voor verschillende browsers */
+}
+
+.clearfix::after{  /* optie om floatgedrag opheffen met class 'clearfix' */ 
+	content: "";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	font-size: 0;
+	clear: both;
+}
+
+/* ===============================
+		BASIS
+================================*/
+body{ /* Padding en margin op 0 om zonder browser instellingen te kunnen beginnen */
+	padding: 0;
+	margin: 0; 
+}
+.container1{
+	min-width: 320px;
+	max-width: 1200px;
+	margin: 0 auto; /* midden aanhouden */
+	overflow: hidden; /* colappse tegen gaan */
+	clear: both;
+}
+.container{ 
+	min-width: 320px; 
+	max-width: 1200px; 
+	margin: 0 auto; 
+	overflow: hidden; 
+	clear: both; 
+	position: relative; 
+}
+
+/* ===============================
+		HEADER
+================================*/
+header{  /* vaste header met navigatie */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255,255,255, 0.8);
+	z-index: 99;  /* Om de andere elementen onder de header door te laten gaan */
+}
+.dividerLine p{  /* is voor tablet en desktop bedoeld */
+		display: none;
+	}
+header h1{    /* h1 tekst verbergen */
+	visibility: hidden;
+}
+
+header .headerLogo{
+	background-image: url('../images/logo_secondary.svg');
+	background-repeat: no-repeat;
+	float: left;
+	margin: 3% 0 1% 4%;
+	padding-bottom: 8%;
+}
+/* ===============================
+		MOBILE NAV
+================================*/
+#showMenuLabel{
+	display: none;
+}
+nav{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 100%;  /* Om de dropdown te laten beginnen direct onder de header */
+}
+nav ul li{
+	display: block;  /* Om de nav onder elkaar als dropdown te kunnen laten fungeren */
+	text-align: center; 
+	width: 100%;
+	background-color: #cccccc;
+	border-bottom: 1px solid #949292; 
+}
+	nav ul li a{
+	font-family: 'montserratregular'; /* Aangemaakte 'font' aanspreken */
+	display: block;
+	padding: 0.6rem;
+	text-decoration: none;
+	color: #684f40;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+}
+nav ul li a:hover{
+	background-color: #684f40;
+	color: #ffffff;
+}
+#showMenu{  /* positioneren en verbergen checkbox */
+	position: absolute;
+	-webkit-appearance: none; /* zou de checkbox moeten verbergen, wil helaas niet */
+	-moz-appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	display: block;
+	outline: 0;  /* verbergen van het oplichtend effect om de checkbox */
+	top: 1rem;  /* voor-positioneren hamburger-menu */
+	right: 2rem;
+}
+#showMenu::after{  /* Hamburger menu */
+	width: 2rem;  /* formaat bepalen van het menu icoon */
+	height: 2rem;
+	overflow: hidden;
+	display: block;
+	content:"\2630";   /* Uni-code voor hamburger-menu */
+	font-size: 1.5rem;
+	color: #684f40;
+	border: 0px;
+}
+#showMenu:checked::after{ /* icoon na klikken de unicode voor de X */
+	font-size: 1.5rem;
+	content: "\2715";
+	color: #684f40;
+}
+#showMenu + nav{  /* snelheid van het tonen van de dropdown */
+	transition-property: height;
+	transition-duration: 800ms;
+	overflow: hidden;
+	height: 0;
+}
+#showMenu:checked + nav{  /* lengte van het menu */
+	height: 19.2rem;
+}
+
+
+/* ===============================
+		HERO IMAGE
+================================*/
+#heroImage{
+	background-image: url('../images/M-slide-2.jpeg');
+	background-size: cover;
+	background-position: center 10%;
+	height: 72vh;
+	box-shadow: 0 2px 3px #333333;
+}
+.heroImageText .bigText{  /* Hoofd text over de hero image */
+	font-family: 'montserratbold';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 1.1rem;
+	text-align: center;
+	color: white;
+	letter-spacing: 0.1rem;
+	text-shadow: 1px 1px 2px #696969;
+}
+.heroImageText{  /* Positie hero image text */
+	padding-top: 35%;
+}
+.heroImageText .subText{  /* subtext hier direct onder */
+	font-family: 'open_sansregular';
+	font-style: normal;
+	font-size: 0.5rem;
+	line-height: 1.7rem;
+	text-align: center;
+	color: white;
+	letter-spacing: 0.1rem;
+	word-spacing: 0.1rem;
+	text-shadow: 1px 1px 1px #333333;
+}
+
+/* ===============================
+		LATEST PRODUCTS
+================================*/
+.aankondiging{
+	text-align: center;  /* text in midden van de pagina */
+	padding-top: 6vh;
+}
+section.aankondiging h2{
+	font-family: 'montserratbold';
+	font-weight: normal;
+	font-style: normal;
+	color: #684f40;
+	font-size: 0.8rem;
+	padding: 1vh 0 1vh 0;
+	letter-spacing: 1px;
+}
+section.aankondiging h3 span{
+	display: block;
+	font-family: 'open_sansregular';
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1rem;
+	color: #684f40;
+	padding: 1vh 0 1vh 0;
+	font-size: 0.6rem;
+	letter-spacing: 1px;
+}
+.aankondiging .lijnGrijs{  /* Streep tussen h2 en h3 */
+	position: relative;
+	margin: 1vh 20% 1vh 25%;
+	border-bottom: 2px solid rgba(105, 105, 105, 0.5);
+	width: 50vw;
+}
+.aankondiging .lijnOranje{
+	position: absolute;
+	border-bottom: 2px solid rgba(253, 184, 34, 1.3 );
+	width: 12vw;
+	left: 35%;
+}
+
+/* ===============================
+		PRODUCTS CAROUSEL
+================================*/
+.carousel{  /* Rand afstand van de carousel */
+	margin: 2% 1% 2% 1%;
+}
+.carousel .pic{
+	width: 90vw;
+	margin: 0 auto;
+}
+.carousel .pic:first-child img{
+	border: 2px solid #684f40;
+	background-color: white;
+	padding: 2%;
+	max-width: 100%;
+	height: auto;
+}
+.carousel .pic:nth-child(2), .carousel .pic:nth-child(3), 
+.carousel .pic:nth-child(4), .carousel .pic:nth-child(5),
+.carousel .pic:nth-child(6), .carousel .pic:nth-child(7),
+.carousel .pic:nth-child(8), .carousel .pic:nth-child(9){
+	display:none;  /* voor mobiel deze nu niet nodig, display none */
+}
+.pagination{  /* positie pagination, center */
+	text-align: center;
+	margin-bottom: 4%;
+}
+.pagination li p{
+	display: none;
+}
+.pagination li{
+	display: inline-block; /* Naast elkaar plaatsen */
+	width: 0.6rem;
+	height: 0.6rem;
+	border: 0.05rem solid #684f40;
+	border-radius: 50% 50%;  /* Rond maken van de vierkantjes */
+}
+.pagination li:first-child{  /* Eerste heeft andere styling, active state */ 
+	width: 0.7rem;
+	height: 0.7rem;
+	border: 3px double #ffffff;
+	background-color: #fdb822;
+}
+.seeProducts{  /* See products button */
+	width: 38%;
+	text-align: center;
+	margin: 1% auto 14% auto;
+	border: 2px solid #684f40;
+	padding: 3% 0;
+}
+.seeProducts p{
+	font-family: 'montserratbold';
+	font-size: 0.7rem;
+	color: #684f40
+}
+
+/* ===============================
+		TESTIMONIAL
+================================*/
+.testimonial{
+	position: relative;  /* Relative om zo later te kunnen positioneren met absolute */
+	text-align: right;
+	color: #684f40;
+	width: 100%;
+	margin: 0 auto;
+}
+picture img{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+.testimonial > h2{
+	position: absolute;
+	top: 28%;
+	right: 5%;
+	font-family: 'montserratbold';
+	font-size: 1.3rem;
+}
+.testimonial .quoteOne{  /* Quote text stylen en positioneren */
+	width: 90%;
+	position: absolute;
+	top: 43%;
+	right: 5%;
+	font-family: 'montserratbold';
+	font-size: 100%;
+	line-height: 2rem;
+}
+.testimonial .jean{  /* Image Jean positioneren en draaien */
+	position: absolute;
+	top: -1rem;
+	left: 1.2rem;
+	width: 40%;
+	transform: rotate(-8deg);
+}
+.testimonial .jean img{
+	max-width: 100%;
+	height: auto;
+	border: 3px solid white;
+}
+.testimonial .dotsJean{  /* Pagination */
+	position: absolute;
+	bottom: 1%;
+	right: 5%;
+}
+.dotsJean li:first-child{
+	border: 3px double #fdb822;
+	background-color: #684f40;
+}
+.testimonial .jean3 img{  /* Image alleen zichtbaar voor Desktop, hier verbergen */
+	display: none;
+}
+
+/* ===============================
+		MAIN SERVICES
+================================*/
+.cards {  /* Cards met flexbox, opmaak voor mobiel */
+	width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+.card {
+  flex: 0 1 96%; /* groote van de cards bepalen adhv height(1) en width(96%) */
+  margin: 4% 0 4% 0;
+}
+.card .dividerLine{  /* Oranje verdeel lijn */
+	width: 20%;
+	background: #717171;
+	height:  1px;
+	margin: 3vh auto 3vh auto;
+	border-bottom: 2px solid #fdb822;
+}
+.dividerLine p{
+	display: none;
+}
+.cards .card img{
+	width: 25%;
+	height: auto;
+	border: 2px solid #684f40;
+	border-radius: 50%;
+	padding: 6%;
+	margin: 2% 0 3% 0;
+}
+.cards .card h3{
+	font-family: 'montserratregular';
+	font-size: 1rem;
+	letter-spacing: 1px;
+	font-weight: bold;
+	color: #684f40;
+}
+.cards .card p{
+	font-size: 1rem;
+	color: #684f40;
+}
+
+/* ===============================
+		ABOUT & SUBSCRIBE
+================================*/
+body > aside{
+	background-color: rgba(51,51,51, 0.95); /* Iets lichtere achtergrondkleur als footer */
+	margin-top: 2%;
+}
+body > aside .container{ /* Padding om de aside */
+	padding: 0 2rem 2rem 1rem;
+}
+body > aside .container div{ /* Ruimte tussen de div's */
+	margin: 2rem 0 0 0;
+	color: #cccccc;
+}
+body > aside .container div h2{
+	padding-bottom: 0.8rem;
+	font-size: 0.9rem;
+	font-family: 'montserratregular';
+}
+body > aside .container div p{
+	font-size: 0.8rem;
+	font-family: 'montserratregular';
+	font-weight: lighter;
+	line-height: 1.2rem;
+}
+body > aside .container .subscribeField{ /* Invulveld opmaak en groote */
+	border: 1px solid #cccccc;
+	padding: 4%;
+	margin-bottom: 0;
+}
+body > aside .container .subscribeField p{
+	display: none;
+}
+body > aside .container .subscribeButton{
+		font-family: 'montserratregular';
+		font-size: 0.8rem;
+		border: 1px solid #cccccc;
+		text-align: center;
+		padding: 3% 0;
+		color: rgba(51,51,51, 0.95);
+		background-color: #cccccc;
+		margin-top: 0;
+}
+aside img{  /* Aside image is alleen zichtbaar voor Tablet en Desktop */
+	display: none;
+}
+
+/* ===============================
+		FOOTER
+================================*/
+body > footer{
+	background-color: #333333;
+	background-image: url("../images/logo-footer-background.png"); /* In Photoshop bewerkt: Invert colors, 12% opacity, geoptimaliseerd met ImageAlpha */
+	background-position: 110% -3%; /* right, top */
+	background-repeat: no-repeat;
+	background-size: 50vw;
+}
+
+body > footer .container{ /* Specifieke selector voor de container van de webpagina footer. */
+	padding: 0 1rem 2rem 1rem;
+}
+
+body > footer .container > div{ /* Footer cards, standaard 100% breed. */
+}
+
+body > footer h1{	
+	display: none;
+}
+
+body > footer time{
+	font-style: italic;
+}
+
+body > footer h2{
+	font-family: 'montserratbold'; /* Dit is een tijdelijk font! Vervang het door gebruik te maken van één van de aangeleverde lettertypes */
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	color: white;
+	
+	padding: 2rem 0 0.6rem 0;
+	clear: both; /* Floatgedrag van de social media icons opheffen. */
+}	
+
+body > footer p,
+body > footer li{
+	font-family: 'montserratregular'; /* Dit is een tijdelijk font! Vervang het door gebruik te maken van één van de aangeleverde lettertypes */
+	font-weight: lighter;
+	font-size: 0.85rem;
+	line-height: 1.6em; /* De em is relatief aan de font-size. Als er geen font-size gedeclareerd is, dan is de em relatief aan de parent-element */
+	color: white;
+}
+
+#footerContactUs li{
+	line-height: 2em; 
+}	
+
+body > footer li,
+body > footer a:link, 
+body > footer a:visited{
+	color: white;
+	text-decoration: none;
+}
+
+body > footer a:hover,
+#footerSocMed span:hover{
+	border-color: rgba(210,210,210,1);
+	color: rgba(210,210,210,1);
+}
+
+/* ---- FOOTER SOCIAL MEDIA ICONS ---- */
+#footerSocMed li{
+	font-family: 'fontawesome';
+	float: left;
+	margin: 0 0.5em -1.8rem 0; /* Extra ruimte tussen elk icoon. De negatieve margin gaat de extra ruimte onder de iconen tegen. */
+}
+
+#footerSocMed a{
+	font-size: 0;  /* Normale linktekst weghalen */
+}
+
+#footerSocMed span{ 
+	display: block;
+	width: 2rem; /* Iconen allemaal even groot maken */
+	height: 2rem;
+	border: 2px solid white;
+	border-radius: 50%; /* Vierkante border omzetten naar een cirkel */
+	
+	font-family: 'fontawesome';
+	font-size: 0.8rem;
+	line-height: 1; /* de 'body > footer a:link' selector overrulen en terugzetten naar 1. */
+	text-align: center; /* Icoon in het midden plaatsen van de circel */
+	
+	padding: 0.55rem; /* Uitlijning van de icoon in de cirkel */
+}
+
+#footerContactUs li::before{ 
+	display: inline;
+	font-family: 'fontawesome';
+	font-size: 0.8rem;
+	padding-right: 0.5rem;
+}
+.arrow{
+	float: right;
+}
+
+/* ---- FOOTER ICONS FONTAWESOME CODE POINTS ---- */
+/* Facebook */	#footerSocMed li:nth-child(1) span::after{ content: "\f09a"; }
+/* Twitter */	#footerSocMed li:nth-child(2) span::after{ content: "\f099"; }
+/* RSS */		#footerSocMed li:nth-child(3) span::after{ content: "\f09e"; }
+/* Pinterest */	#footerSocMed li:nth-child(4) span::after{ content: "\f0d2"; }
+/* LinkedIn */	#footerSocMed li:nth-child(5) span::after{ content: "\f0e1"; }
+
+/* Call */		#footerContactUs li:nth-child(1)::before{ content: "\f095"; }
+/* Address */	#footerContactUs li:nth-child(2)::before{ content: "\f1d8"; }
+/* E-mail */	#footerContactUs li:nth-child(3)::before{ content: "\f0e0"; }
+/* Website */	#footerContactUs li:nth-child(4)::before{ content: "\f0ac"; }
+

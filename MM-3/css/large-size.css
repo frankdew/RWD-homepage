@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+/* ===============================
+		Desktop
+================================*/
+@media screen and (min-width: 1100px) {
+
+/* ===============================
+		HEADER
+================================*/
+	.headerLogo2{
+		height: 22vh;
+		background-position: center 20%		
+	}
+	.heroImageText .bigText{
+		font-size: 4rem;
+		letter-spacing: 0.15rem;
+		word-spacing: 0.1rem;
+		text-shadow: 1px 1px 5px #696969;
+	}
+	.heroImageText .subText{
+		font-size: 1.6rem;
+		line-height: 1.7rem;
+		letter-spacing: 0.1rem;
+		text-shadow: 1px 1px 2px #333333;
+	}
+/* ===============================
+		DESKTOP NAV
+================================*/
+	nav ul li a{
+		font-size: 1.1rem;
+		padding: 0 0.7rem 0 0.7rem;
+	}
+
+
+/* ===============================
+		PRODUCTS CAROUSEL
+================================*/
+	.carousel .pic:nth-child(8),.carousel .pic:nth-child(9){  /* Tonen extra images */
+		display: initial;
+	}
+	.carousel{
+		width: 95%;
+	}
+	.carousel .pic{
+		width: 23%; /* Verdeling zet carousel in het midden */
+	}
+	.seeProducts p{
+	font-size: 0.9rem;
+	}
+
+/* ===============================
+		TESTIMONIAL
+================================*/
+	.testimonial .jean3{
+		position: absolute;
+		top: 0;
+		left: 3rem;
+		width: 20%;
+	}
+	.testimonial .jean3 img{
+		width: 100%;
+		height: auto;
+		border: 3px solid white;
+	}
+	.testimonial .jean3 img{
+		display: initial;
+	}
+
+/* ===============================
+		MAIN SERVICES
+================================*/
+	.card {  
+	  flex: 0 1 20%;  /* Indeling cards aangepast dmv de width(naar 20%) */
+	  margin: 4% 0 4% 0;
+	}
+
+/* ===============================
+		ABOUT & SUBSCRIBE
+================================*/
+	body > aside .container div{
+		float: left;
+		width: 30%;  /* In 3 delen ogesplits door 30% aan te houden in verdeling */
+	}
+	body > aside .container .about, body > aside .container .subscribe{
+		text-align: left;  /* Image hierin niet meegenomen, moet gecentreerd blijven */
+	}
+	body > aside .container .subscribeButton{ 
+		width: 38%;
+		text-align: center;
+	}
+	body > aside .container .subscribeField{
+		width: 60%;
+		padding: 3.5%;
+	}
+
+
+/* ===============================
+		FOOTER
+================================*/
+	body > footer{
+		background-position: 102% -2vw; /* right, top */
+		background-size: auto 120%;
+		padding-bottom: 5rem;
+	}
+
+	body > footer .container > div{ /* Cards in vier kolommen */
+		width: 25%;
+	}
+}
